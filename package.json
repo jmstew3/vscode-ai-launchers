@@ -1,0 +1,62 @@
+{
+  "name": "ai-terminal-launchers",
+  "displayName": "AI Terminal Launchers",
+  "description": "One-click toolbar buttons to launch Codex and Gemini in a new terminal",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aiTerminalLaunchers.openCodex",
+        "title": "Open Codex Terminal",
+        "icon": {
+          "light": "resources/blossom-black.svg",
+          "dark": "resources/blossom-white.svg"
+        }
+      },
+      {
+        "command": "aiTerminalLaunchers.openGemini",
+        "title": "Open Gemini Terminal",
+        "icon": "$(material-spark)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "aiTerminalLaunchers.openCodex",
+          "group": "navigation"
+        },
+        {
+          "command": "aiTerminalLaunchers.openGemini",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "aiTerminalLaunchers.openCodex",
+        "key": "alt+cmd+c",
+        "mac": "alt+cmd+c"
+      },
+      {
+        "command": "aiTerminalLaunchers.openGemini",
+        "key": "alt+cmd+g",
+        "mac": "alt+cmd+g"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}
